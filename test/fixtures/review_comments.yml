@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  review_file_id: <%= Fixtures.identify(:review_file_for_comment)%>
+  comment_content: CommentOne
+  reviewer_participant_id: <%= Fixtures.identify(:par1) %>
+  file_offset: 2
+
+two:
+  review_file_id: 1
+  comment_content: CommentTwo
+  reviewer_participant_id: 1
+  file_offset: 10

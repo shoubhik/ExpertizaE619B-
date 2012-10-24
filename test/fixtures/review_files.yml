@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  filepath: <%= Dir.pwd + '/test/fixtures/files/dummyfile'%>
+  author_participant_id: <%= Fixtures.identify(:par1) %>
+  version_number: 1
+
+two:
+  filepath: Path2
+  author_participant_id: 1
+  version_number: 2
+
+three:
+  filepath: <%= Dir.pwd + '/test/fixtures/files/dummyfile.rev2'%>
+  author_participant_id: <%= Fixtures.identify(:par1) %>
+  version_number: 2
+
+review_file_for_comment:
+  filepath: <%= Dir.pwd + '/test/fixtures/files/dummyfile.rev2'%>
+  author_participant_id: <%= Fixtures.identify(:par1) %>
+  version_number: 1
+
