@@ -44,16 +44,16 @@ class ReviewFilesControllerTest < ActionController::TestCase
          :uploaded_review_file => @file_not_zip
     assert_equal "Uploaded file is not a zip file. Please upload zip files only.",
                  flash[:error]
-    assert_redirected_to :action => "show_all_submitted_files"
+    assert_redirected_to :action => "show_all_submitted_files",
+                         :params => {:participant_id => @participantId}
   end
 
 
   def test_submit_review_file_for_zip_files_for_htm_request
-    assigns(:review_file)
-    assert assigns(:success)
     post :submit_review_file,   :participant_id  => @participantId,
          :uploaded_review_file => @file_zip, :format => "html"
-
+    assigns(:review_file)
+    assert assigns(:success)
     assert_redirected_to :action => "show_all_submitted_files",
                          :params => {:participant_id => @participantId}
   end
@@ -117,7 +117,6 @@ class ReviewFilesControllerTest < ActionController::TestCase
   def test_get_comments
     post :get_comments, :file_id =>review_files(:review_file_for_comment).id,
          :file_offset => review_comments(:one).file_offset, :format => "js"
-    puts @response.body
     result = @response.body
     # response should have the comment
     assert_not_nil result.match /Comment 1:/
